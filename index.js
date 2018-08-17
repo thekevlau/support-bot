@@ -1,5 +1,6 @@
 const express = require('express');
 const {Wit, log} = require('node-wit');
+const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 
@@ -61,12 +62,12 @@ function ask_wit_ai(query) {
 // whatsapp to the app -->
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
-const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.post('/say_hello', (req, res) => {
 	console.log(req.body.Body);
+	ask_wit_ai(req.body.Body);
 	// const twiml = new MessagingResponse();
 
 	// twiml.message('The Robots are coming! Head for the hills!');
