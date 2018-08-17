@@ -39,11 +39,13 @@ function ask_wit_ai(query) {
 			} else if (data.entities.hasOwnProperty('lost_things')) {
 				sent_message = handle_problems.handle_lost_item();
 			} else if (data.entities.hasOwnProperty('sentiment')) {
-				if (data.entities.sentiment.value = "negative") {
+				if (data.entities.sentiment.value == "negative") {
 					sent_message = handle_problems.clarify_safety();
 				}
+			} else if (data.entities.hasOwnProperty('new_driver')) {
+				sent_message = handle_problems.driver_sign_up();
 			} else {
-
+				sent_message = handle_problems.contact_support();
 			}
 
 			twilio_client.messages
@@ -63,7 +65,6 @@ function ask_wit_ai(query) {
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 app.use(bodyParser.urlencoded({ extended: false }));
-
 
 app.post('/say_hello', (req, res) => {
 	console.log(req.body.Body);
