@@ -58,12 +58,13 @@ function ask_wit_ai(query) {
 }
 
 // INPUT FROM TEXT
-
+// whatsapp to the app -->
 app.post('/say_hello', function (req, res) {
-	console.log(req.body);
+	console.log(JSON.stringify(req.body));
 	res.send(req);
 });
 
+// app responds -->
 
 
 
