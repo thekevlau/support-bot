@@ -60,8 +60,7 @@ function ask_wit_ai(query) {
 // INPUT FROM TEXT
 
 app.post('/say_hello', function (req, res) {
-	console.log("why hello there");
-	console.log(req);
+	console.log(req.body);
 	res.send(req);
 });
 
