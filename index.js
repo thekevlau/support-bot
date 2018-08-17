@@ -3,6 +3,7 @@ const {Wit, log} = require('node-wit');
 const path = require('path');
 const app = express();
 
+
 var handle_problems = require('./handle_problems.js');
 
 const client = new Wit({accessToken: 'FJC4JZDUKOJTYXL4Z7XMVBJOFM2NPPQN'});
@@ -20,35 +21,49 @@ app.get('/', function (req, res) {
 });
 
 
-app.post('/say_hello', function (req, res) {
-	console.log("why hello there");
-	console.log(req);
-	res.send("message recieved");
-});
+const accountSid = 'ACc1b8310d23d8d6d1d231a3fc13d1a31a';
+const authToken = '7f5a3ce61a1ea84699171a238574821d';
+const twilio_client = require('twilio')(accountSid, authToken);
+
 
 function ask_wit_ai(query) {
 	client.message(query, {})
 		.then((data) => {
+			let sent_message = "";
 			let string_result = JSON.stringify(data);
 			console.log('Yay, got Wit.ai response: ' + string_result);
 			// safety first
 			if (data.entities.hasOwnProperty('safety')){
-				handle_problems.handle_safety();
+				sent_message = handle_problems.handle_safety();
 			} else if (data.entities.hasOwnProperty('lost_things')) {
-				handle_problems.handle_lost_item();
+				sent_message = handle_problems.handle_lost_item();
 			} else if (data.entities.hasOwnProperty('sentiment')) {
 				if (data.entities.sentiment.value = "negative") {
-					handle_problems.clarify_safety();
+					sent_message = handle_problems.clarify_safety();
 				}
 			} else {
 
 			}
+
+			twilio_client.messages
+				.create({
+					body: sent_message,
+					from: 'whatsapp:+14155238886',
+					to: 'whatsapp:+16507853674'
+				})
+				.then(message => console.log(message.sid))
+				.done();
 		})
 		.catch(console.error);
 }
 
 // INPUT FROM TEXT
 
+app.post('/say_hello', function (req, res) {
+	console.log("why hello there");
+	console.log(req);
+	res.send(req);
+});
 
 
 

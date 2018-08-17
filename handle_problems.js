@@ -2,15 +2,14 @@ module.exports = {
 
 	handle_safety: function(){
 	// if safety concern
-		console.log("If you feel your safety is compromised please call 911 immediately");
-		console.log("If you would like to speak to a specialist about ");
+		return "If you feel your safety is compromised please call 911 immediately. If you would like to speak to a specialist about ";
 
 	},
 	handle_lost_item: function() {
-		console.log("Please contact your driver at DRIVER_PROXY_NUMBER to coordinate pickup.");
+		return "Please contact your driver at DRIVER_PROXY_NUMBER to coordinate pickup.";
 	},
 	clarify_safety: function() {
-		console.log("wait I need more info. If you feel unsafe please say you feel unsafe.");
+		return "wait I need more info. If you feel unsafe please say you feel unsafe.";
 	}
 
 // function handle_rude(){
