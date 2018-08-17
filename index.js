@@ -43,6 +43,7 @@ function ask_wit_ai(query) {
 					sent_message = handle_problems.clarify_safety();
 				}
 			} else if (data.entities.hasOwnProperty('new_driver')) {
+				console.log('time to get some drivers to sign up');
 				sent_message = handle_problems.driver_sign_up();
 			} else {
 				sent_message = handle_problems.contact_support();

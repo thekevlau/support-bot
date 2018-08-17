@@ -11,7 +11,7 @@ module.exports = {
 		return "wait I need more info. If you feel unsafe please say you feel unsafe.";
 	},
 	driver_sign_up: function() {
-		return "Please visit this website: ";
+		return "Please visit this website: I_COULDNT_GET_LINKS_WORKING_IN_WHATSAPP";
 	},
 	contact_support: function() {
 		return "Ah, sorry I didn't really understand that. My human support team counterparts can help you though. Give them a call: 650 415 6470";
