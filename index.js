@@ -59,9 +59,16 @@ function ask_wit_ai(query) {
 
 // INPUT FROM TEXT
 // whatsapp to the app -->
-app.post('/say_hello', function (req, res) {
-	console.log(JSON.stringify(req));
-	res.send(req);
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
+
+app.post('/say_hello', (req, res) => {
+	console.log(req.toString());
+	// const twiml = new MessagingResponse();
+
+	// twiml.message('The Robots are coming! Head for the hills!');
+
+	// res.writeHead(200, {'Content-Type': 'text/xml'});
+	// res.end(twiml.toString());
 });
 
 // app responds -->
