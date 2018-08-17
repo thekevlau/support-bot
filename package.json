@@ -1,0 +1,21 @@
+{
+  "name": "uber-support",
+  "version": "1.0.0",
+  "description": "MVP support chatbot interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Lau",
+  "license": "MIT",
+  "dependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.3.0",
+    "express": "^4.16.3",
+    "node-wit": "^5.0.0",
+    "twilio": "^3.19.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.11.1"
+  }
+}
