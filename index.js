@@ -7,14 +7,14 @@ var handle_problems = require('./handle_problems.js');
 
 const client = new Wit({accessToken: 'FJC4JZDUKOJTYXL4Z7XMVBJOFM2NPPQN'});
 
+app.listen(3000, function () {
+	console.log('Example app listening on port 3000!');
+});
 
 app.get('/', function (req, res) {
 	res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.listen(3000, function () {
-	console.log('Example app listening on port 3000!');
-});
 
 app.post('/', function (req, res) {
 	console.log("why hello there");
