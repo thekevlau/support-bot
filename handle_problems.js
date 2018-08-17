@@ -11,11 +11,12 @@ module.exports = {
 		return "wait I need more info. If you feel unsafe please say you feel unsafe.";
 	},
 	driver_sign_up: function() {
-		return "Please visit https://help.uber.com/h/88b80350-8701-40c0-8493-9b21189a71ec";
+		return "Please visit this website: ";
 	},
 	contact_support: function() {
 		return "Ah, sorry I didn't really understand that. My human support team counterparts can help you though. Give them a call: 650 415 6470";
-	}
+	},
+
 
 // function handle_rude(){
 // 	// 
