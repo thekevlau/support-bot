@@ -53,7 +53,6 @@ function ask_wit_ai(query) {
 				.create({
 					body: sent_message,
 					from: 'whatsapp:+14155238886',
-					statusCallback: 'https://help.uber.com/h/88b80350-8701-40c0-8493-9b21189a71ec',
 					to: 'whatsapp:+16507853674'
 				})
 				.then(message => console.log(message.sid))
