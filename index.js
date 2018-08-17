@@ -38,13 +38,13 @@ function ask_wit_ai(query) {
 				sent_message = handle_problems.handle_safety();
 			} else if (data.entities.hasOwnProperty('lost_things')) {
 				sent_message = handle_problems.handle_lost_item();
+			} else if (data.entities.new_driver.value == "true") {
+				console.log('time to get some drivers to sign up');
+				sent_message = "hello new driver";
 			} else if (data.entities.hasOwnProperty('sentiment')) {
 				if (data.entities.sentiment.value == "negative") {
 					sent_message = handle_problems.clarify_safety();
 				}
-			} else if (data.entities.new_driver.value == "true") {
-				console.log('time to get some drivers to sign up');
-				sent_message = "hello new driver";
 			} else {
 				sent_message = handle_problems.contact_support();
 			}
