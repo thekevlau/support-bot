@@ -7,9 +7,9 @@ var handle_problems = require('./handle_problems.js');
 const client = new Wit({accessToken: 'FJC4JZDUKOJTYXL4Z7XMVBJOFM2NPPQN'});
 
 
-// app.get('/', function (req, res) {
-// 	res.send('Hello World!');
-// });
+app.get('/', function (req, res) {
+	res.send('Hello World!');
+});
 
 app.listen(3000, function () {
 	console.log('Example app listening on port 3000!');
