@@ -1,6 +1,6 @@
 {
   "name": "uber-support",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "MVP support chatbot interface",
   "main": "index.js",
   "scripts": {
