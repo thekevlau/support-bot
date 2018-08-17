@@ -1,5 +1,6 @@
 const express = require('express');
 const {Wit, log} = require('node-wit');
+const path = require('path');
 const app = express();
 
 var handle_problems = require('./handle_problems.js');
@@ -8,7 +9,7 @@ const client = new Wit({accessToken: 'FJC4JZDUKOJTYXL4Z7XMVBJOFM2NPPQN'});
 
 
 app.get('/', function (req, res) {
-	res.send('Hello World!');
+	res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.listen(3000, function () {
@@ -18,6 +19,7 @@ app.listen(3000, function () {
 app.post('/', function (req, res) {
 	console.log("why hello there");
 	console.log(req);
+	res.send("message recieved");
 });
 
 function ask_wit_ai(query) {
@@ -50,28 +52,28 @@ function ask_wit_ai(query) {
 // INPUT FROM STDIN
 
 // Get process.stdin as the standard input object.
-var standard_input = process.stdin;
+// var standard_input = process.stdin;
 
-// Set input character encoding.
-standard_input.setEncoding('utf-8');
+// // Set input character encoding.
+// standard_input.setEncoding('utf-8');
 
-// Prompt user to input data in console.
-console.log("Hello I am UberBot. Please tell me your problems by inputting text:");
+// // Prompt user to input data in console.
+// console.log("Hello I am UberBot. Please tell me your problems by inputting text:");
 
-// When user input data and click enter key.
-standard_input.on('data', function (data) {
+// // When user input data and click enter key.
+// standard_input.on('data', function (data) {
 
-	// User input exit.
-	if(data === 'exit\n'){
-		// Program exit.
-		console.log("User input complete, program exit.");
-		process.exit();
-	} else {
-		// Process Input
-		ask_wit_ai(data);
+// 	// User input exit.
+// 	if(data === 'exit\n'){
+// 		// Program exit.
+// 		console.log("User input complete, program exit.");
+// 		process.exit();
+// 	} else {
+// 		// Process Input
+// 		ask_wit_ai(data);
 
-	}
-});
+// 	}
+// });
 
 
 // use case
